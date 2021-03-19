@@ -5,12 +5,12 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.Menus;
+  Vcl.Menus, u_Usuario;
 
 type
   TfrmPrincipal = class(TForm)
     Panel1: TPanel;
-    SpeedButton1: TSpeedButton;
+    btnUsuario: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
@@ -43,6 +43,8 @@ type
     Sobreosistema1: TMenuItem;
     procedure Timer1Timer(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
+    procedure btnUsuarioClick(Sender: TObject);
+    procedure AbreTelaUsuario();
   private
     { Private declarations }
   public
@@ -58,7 +60,33 @@ implementation
 
 procedure TfrmPrincipal.SpeedButton10Click(Sender: TObject);
 begin
-  Application.Terminate;
+  if messagedlg('Deseja realmente sair do sistema?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
+  begin
+    Application.Terminate;
+  end
+  else
+  begin
+    abort;
+  end;
+
+
+end;
+
+procedure TfrmPrincipal.AbreTelaUsuario;
+begin
+  frmUsuario:=TfrmUsuario.Create(self);
+  frmUsuario.ShowModal;
+  try
+
+  finally
+    frmUsuario.Free;
+    frmUsuario:=nil;
+  end;
+end;
+
+procedure TfrmPrincipal.btnUsuarioClick(Sender: TObject);
+begin
+  AbreTelaUsuario;
 end;
 
 procedure TfrmPrincipal.Timer1Timer(Sender: TObject);
