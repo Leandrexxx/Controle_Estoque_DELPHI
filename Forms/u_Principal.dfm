@@ -835,7 +835,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 0
       Width = 100
       Height = 90
-      Caption = '&Cliente'
+      Caption = '&Clientes'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1231,6 +1231,7 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = SpeedButton3Click
     end
     object SpeedButton4: TSpeedButton
       Left = 364
@@ -4084,6 +4085,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object Clientes1: TMenuItem
         Caption = '&Clientes'
+        OnClick = Clientes1Click
       end
       object Fornecedores1: TMenuItem
         Caption = '&Fornecedores'

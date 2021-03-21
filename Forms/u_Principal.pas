@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.Menus, u_Usuario, u_Empresa;
+  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente;
 
 type
   TfrmPrincipal = class(TForm)
@@ -49,6 +49,9 @@ type
     procedure AbreTelaEmpresa();
     procedure Usurio1Click(Sender: TObject);
     procedure Empresa1Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure AbreTelaCliente();
+    procedure Clientes1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -81,6 +84,23 @@ begin
   AbreTelaEmpresa;
 end;
 
+procedure TfrmPrincipal.SpeedButton3Click(Sender: TObject);
+begin
+  AbreTelaCliente;
+end;
+
+procedure TfrmPrincipal.AbreTelaCliente;
+begin
+  frmCliente:=TfrmCliente.Create(self);
+  frmCliente.ShowModal;
+  try
+
+  finally
+    frmCliente.Free;
+    frmCliente:=nil;//LIMPANDO A MEMORIA
+  end;
+end;
+
 procedure TfrmPrincipal.AbreTelaEmpresa;
 begin
   frmEmpresa:=TfrmEmpresa.Create(self);
@@ -108,6 +128,11 @@ end;
 procedure TfrmPrincipal.btnUsuarioClick(Sender: TObject);
 begin
   AbreTelaUsuario;
+end;
+
+procedure TfrmPrincipal.Clientes1Click(Sender: TObject);
+begin
+  AbreTelaCliente;
 end;
 
 procedure TfrmPrincipal.Empresa1Click(Sender: TObject);

@@ -6,7 +6,8 @@ uses
   U_DM in '..\Forms\U_DM.pas' {DM: TDataModule},
   u_Padrao in '..\Forms\u_Padrao.pas' {frmPadrao},
   u_Usuario in '..\Forms\u_Usuario.pas' {frmUsuario},
-  u_Empresa in '..\Forms\u_Empresa.pas' {frmEmpresa};
+  u_Empresa in '..\Forms\u_Empresa.pas' {frmEmpresa},
+  u_Cliente in '..\Forms\u_Cliente.pas' {frmCliente};
 
 {$R *.res}
 
@@ -15,5 +16,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDM, DM);
+  Application.CreateForm(TfrmCliente, frmCliente);
   Application.Run;
 end.
