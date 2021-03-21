@@ -306,7 +306,6 @@ inherited frmCliente: TfrmCliente
     end
   end
   inherited dsPadrao: TDataSource
-    DataSet = qryPadrao
     Left = 688
     Top = 192
   end

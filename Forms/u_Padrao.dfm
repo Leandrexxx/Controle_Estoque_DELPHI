@@ -921,11 +921,12 @@ object frmPadrao: TfrmPadrao
   end
   object qryPadrao: TFDQuery
     Connection = DM.conexao
-    Left = 32
-    Top = 144
+    Left = 752
+    Top = 152
   end
   object dsPadrao: TDataSource
-    Left = 32
-    Top = 200
+    DataSet = qryPadrao
+    Left = 752
+    Top = 208
   end
 end

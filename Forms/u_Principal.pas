@@ -5,21 +5,21 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente, u_Fornecedor;
+  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente, u_Fornecedor, u_Produto;
 
 type
   TfrmPrincipal = class(TForm)
     Panel1: TPanel;
     btnUsuario: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
-    SpeedButton10: TSpeedButton;
+    btnEmpresa: TSpeedButton;
+    btnCliente: TSpeedButton;
+    btnFornecedor: TSpeedButton;
+    btnProduto: TSpeedButton;
+    btnFormaPgto: TSpeedButton;
+    btnCompra: TSpeedButton;
+    btnVenda: TSpeedButton;
+    btnTrocarUsuario: TSpeedButton;
+    btnFechar: TSpeedButton;
     StatusBar1: TStatusBar;
     Timer1: TTimer;
     MainMenu1: TMainMenu;
@@ -42,19 +42,22 @@ type
     ListaVendas1: TMenuItem;
     Sobreosistema1: TMenuItem;
     procedure Timer1Timer(Sender: TObject);
-    procedure SpeedButton10Click(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
     procedure btnUsuarioClick(Sender: TObject);
     procedure AbreTelaUsuario();
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure btnEmpresaClick(Sender: TObject);
     procedure AbreTelaEmpresa();
     procedure menuUsuarioClick(Sender: TObject);
     procedure menuEmpresaClick(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    procedure btnClienteClick(Sender: TObject);
     procedure AbreTelaCliente();
     procedure menuClienteClick(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
+    procedure btnFornecedorClick(Sender: TObject);
     procedure AbreTelaFornecedor();
     procedure menuFornecedoresClick(Sender: TObject);
+    procedure btnProdutoClick(Sender: TObject);
+    procedure AbreTelaProduto();
+    procedure menuProdutosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,7 +71,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmPrincipal.SpeedButton10Click(Sender: TObject);
+procedure TfrmPrincipal.btnFecharClick(Sender: TObject);
 begin
   if messagedlg('Deseja realmente sair do sistema?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
   begin
@@ -82,19 +85,24 @@ begin
 
 end;
 
-procedure TfrmPrincipal.SpeedButton2Click(Sender: TObject);
+procedure TfrmPrincipal.btnEmpresaClick(Sender: TObject);
 begin
   AbreTelaEmpresa;
 end;
 
-procedure TfrmPrincipal.SpeedButton3Click(Sender: TObject);
+procedure TfrmPrincipal.btnClienteClick(Sender: TObject);
 begin
   AbreTelaCliente;
 end;
 
-procedure TfrmPrincipal.SpeedButton4Click(Sender: TObject);
+procedure TfrmPrincipal.btnFornecedorClick(Sender: TObject);
 begin
   AbreTelaFornecedor;
+end;
+
+procedure TfrmPrincipal.btnProdutoClick(Sender: TObject);
+begin
+  AbreTelaProduto;
 end;
 
 procedure TfrmPrincipal.AbreTelaCliente;
@@ -133,6 +141,18 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.AbreTelaProduto;
+begin
+  frmProduto:=TfrmProduto.create(self);
+  frmProduto.ShowModal;
+  try
+
+  finally
+    frmProduto.Free;
+    frmProduto:=nil;
+  end;
+end;
+
 procedure TfrmPrincipal.AbreTelaUsuario;
 begin
   frmUsuario:=TfrmUsuario.Create(self);
@@ -163,6 +183,11 @@ end;
 procedure TfrmPrincipal.menuFornecedoresClick(Sender: TObject);
 begin
   AbreTelaFornecedor;
+end;
+
+procedure TfrmPrincipal.menuProdutosClick(Sender: TObject);
+begin
+  AbreTelaProduto;
 end;
 
 procedure TfrmPrincipal.Timer1Timer(Sender: TObject);

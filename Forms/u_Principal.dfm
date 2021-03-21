@@ -427,7 +427,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       OnClick = btnUsuarioClick
     end
-    object SpeedButton2: TSpeedButton
+    object btnEmpresa: TSpeedButton
       Left = 128
       Top = 0
       Width = 100
@@ -828,9 +828,9 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
-      OnClick = SpeedButton2Click
+      OnClick = btnEmpresaClick
     end
-    object SpeedButton3: TSpeedButton
+    object btnCliente: TSpeedButton
       Left = 246
       Top = 0
       Width = 100
@@ -1231,9 +1231,9 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
-      OnClick = SpeedButton3Click
+      OnClick = btnClienteClick
     end
-    object SpeedButton4: TSpeedButton
+    object btnFornecedor: TSpeedButton
       Left = 364
       Top = 0
       Width = 100
@@ -1634,9 +1634,9 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
-      OnClick = SpeedButton4Click
+      OnClick = btnFornecedorClick
     end
-    object SpeedButton5: TSpeedButton
+    object btnProduto: TSpeedButton
       Left = 482
       Top = 0
       Width = 100
@@ -2037,8 +2037,9 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = btnProdutoClick
     end
-    object SpeedButton6: TSpeedButton
+    object btnFormaPgto: TSpeedButton
       Left = 600
       Top = 0
       Width = 100
@@ -2440,7 +2441,7 @@ object frmPrincipal: TfrmPrincipal
       Layout = blGlyphTop
       ParentFont = False
     end
-    object SpeedButton7: TSpeedButton
+    object btnCompra: TSpeedButton
       Left = 718
       Top = 0
       Width = 100
@@ -2842,7 +2843,7 @@ object frmPrincipal: TfrmPrincipal
       Layout = blGlyphTop
       ParentFont = False
     end
-    object SpeedButton8: TSpeedButton
+    object btnVenda: TSpeedButton
       Left = 836
       Top = 0
       Width = 100
@@ -3244,7 +3245,7 @@ object frmPrincipal: TfrmPrincipal
       Layout = blGlyphTop
       ParentFont = False
     end
-    object SpeedButton9: TSpeedButton
+    object btnTrocarUsuario: TSpeedButton
       Left = 954
       Top = 0
       Width = 100
@@ -3646,7 +3647,7 @@ object frmPrincipal: TfrmPrincipal
       Layout = blGlyphTop
       ParentFont = False
     end
-    object SpeedButton10: TSpeedButton
+    object btnFechar: TSpeedButton
       Left = 1072
       Top = 0
       Width = 100
@@ -4047,7 +4048,7 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
-      OnClick = SpeedButton10Click
+      OnClick = btnFecharClick
     end
   end
   object StatusBar1: TStatusBar
@@ -4094,6 +4095,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object menuProdutos: TMenuItem
         Caption = '&Produtos'
+        OnClick = menuProdutosClick
       end
       object menuFormaPgto: TMenuItem
         Caption = '&Formas de Pgto'
