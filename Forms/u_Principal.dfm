@@ -1634,6 +1634,7 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = SpeedButton4Click
     end
     object SpeedButton5: TSpeedButton
       Left = 482
@@ -4075,25 +4076,26 @@ object frmPrincipal: TfrmPrincipal
     Top = 168
     object Cadastro1: TMenuItem
       Caption = 'Cadastro'
-      object Usurio1: TMenuItem
+      object menuUsuario: TMenuItem
         Caption = '&Usu'#225'rio'
-        OnClick = Usurio1Click
+        OnClick = menuUsuarioClick
       end
-      object Empresa1: TMenuItem
+      object menuEmpresa: TMenuItem
         Caption = '&Empresa'
-        OnClick = Empresa1Click
+        OnClick = menuEmpresaClick
       end
-      object Clientes1: TMenuItem
+      object menuCliente: TMenuItem
         Caption = '&Clientes'
-        OnClick = Clientes1Click
+        OnClick = menuClienteClick
       end
-      object Fornecedores1: TMenuItem
+      object menuFornecedores: TMenuItem
         Caption = '&Fornecedores'
+        OnClick = menuFornecedoresClick
       end
-      object Produtos1: TMenuItem
+      object menuProdutos: TMenuItem
         Caption = '&Produtos'
       end
-      object FormasdePagamento1: TMenuItem
+      object menuFormaPgto: TMenuItem
         Caption = '&Formas de Pgto'
       end
     end

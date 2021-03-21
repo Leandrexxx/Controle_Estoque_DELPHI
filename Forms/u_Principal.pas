@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente;
+  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente, u_Fornecedor;
 
 type
   TfrmPrincipal = class(TForm)
@@ -24,12 +24,12 @@ type
     Timer1: TTimer;
     MainMenu1: TMainMenu;
     Cadastro1: TMenuItem;
-    Usurio1: TMenuItem;
-    Empresa1: TMenuItem;
-    Clientes1: TMenuItem;
-    Fornecedores1: TMenuItem;
-    Produtos1: TMenuItem;
-    FormasdePagamento1: TMenuItem;
+    menuUsuario: TMenuItem;
+    menuEmpresa: TMenuItem;
+    menuCliente: TMenuItem;
+    menuFornecedores: TMenuItem;
+    menuProdutos: TMenuItem;
+    menuFormaPgto: TMenuItem;
     Movimentos1: TMenuItem;
     Compras1: TMenuItem;
     Vendas1: TMenuItem;
@@ -47,11 +47,14 @@ type
     procedure AbreTelaUsuario();
     procedure SpeedButton2Click(Sender: TObject);
     procedure AbreTelaEmpresa();
-    procedure Usurio1Click(Sender: TObject);
-    procedure Empresa1Click(Sender: TObject);
+    procedure menuUsuarioClick(Sender: TObject);
+    procedure menuEmpresaClick(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure AbreTelaCliente();
-    procedure Clientes1Click(Sender: TObject);
+    procedure menuClienteClick(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure AbreTelaFornecedor();
+    procedure menuFornecedoresClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,6 +92,11 @@ begin
   AbreTelaCliente;
 end;
 
+procedure TfrmPrincipal.SpeedButton4Click(Sender: TObject);
+begin
+  AbreTelaFornecedor;
+end;
+
 procedure TfrmPrincipal.AbreTelaCliente;
 begin
   frmCliente:=TfrmCliente.Create(self);
@@ -113,6 +121,18 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.AbreTelaFornecedor;
+begin
+  frmFornecedor:=TfrmFornecedor.Create(self); //O FORM ESTA CRIANDO E RECEBENDO ELE MESMO
+  frmFornecedor.ShowModal; //NO SHOW MODAL SÓ PODE MEXER NA TELA QUE ESTA ABERTA
+  try
+
+  finally
+    frmFornecedor.Free;
+    frmFornecedor:=nil;
+  end;
+end;
+
 procedure TfrmPrincipal.AbreTelaUsuario;
 begin
   frmUsuario:=TfrmUsuario.Create(self);
@@ -130,14 +150,19 @@ begin
   AbreTelaUsuario;
 end;
 
-procedure TfrmPrincipal.Clientes1Click(Sender: TObject);
+procedure TfrmPrincipal.menuClienteClick(Sender: TObject);
 begin
   AbreTelaCliente;
 end;
 
-procedure TfrmPrincipal.Empresa1Click(Sender: TObject);
+procedure TfrmPrincipal.menuEmpresaClick(Sender: TObject);
 begin
   AbreTelaEmpresa;
+end;
+
+procedure TfrmPrincipal.menuFornecedoresClick(Sender: TObject);
+begin
+  AbreTelaFornecedor;
 end;
 
 procedure TfrmPrincipal.Timer1Timer(Sender: TObject);
@@ -149,7 +174,7 @@ begin
 
 end;
 
-procedure TfrmPrincipal.Usurio1Click(Sender: TObject);
+procedure TfrmPrincipal.menuUsuarioClick(Sender: TObject);
 begin
   AbreTelaUsuario;
 end;

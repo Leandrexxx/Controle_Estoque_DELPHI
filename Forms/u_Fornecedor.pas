@@ -1,4 +1,4 @@
-unit u_Cliente;
+unit u_Fornecedor;
 
 interface
 
@@ -11,8 +11,8 @@ uses
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
 
 type
-  TfrmCliente = class(TfrmPadrao)
-    qryPadraoID_CLIENTE: TFDAutoIncField;
+  TfrmFornecedor = class(TfrmPadrao)
+    qryPadraoID_FORNECEDOR: TFDAutoIncField;
     qryPadraoNOME: TStringField;
     qryPadraoENDERECO: TStringField;
     qryPadraoNUMERO: TIntegerField;
@@ -20,6 +20,9 @@ type
     qryPadraoCIDADE: TStringField;
     qryPadraoUF: TStringField;
     qryPadraoCEP: TStringField;
+    qryPadraoTELEFONE: TStringField;
+    qryPadraoCNPJ: TStringField;
+    qryPadraoEMAIL: TStringField;
     qryPadraoCADASTRO: TDateField;
     Label1: TLabel;
     dbeCodigo: TDBEdit;
@@ -27,24 +30,24 @@ type
     dbeNome: TDBEdit;
     Label3: TLabel;
     dbeEndereco: TDBEdit;
+    Label4: TLabel;
     dbeNumero: TDBEdit;
     Label5: TLabel;
     dbeBairro: TDBEdit;
     Label6: TLabel;
     dbeCidade: TDBEdit;
     Label7: TLabel;
-    DBEdit7: TDBEdit;
+    dbeUF: TDBEdit;
     Label8: TLabel;
     dbeCep: TDBEdit;
-    Label10: TLabel;
-    dbeCadastro: TDBEdit;
-    qryPadraoTELEFONE: TStringField;
-    qryPadraoCPF: TStringField;
-    Label11: TLabel;
+    Label9: TLabel;
     dbeTelefone: TDBEdit;
+    Label10: TLabel;
+    dbeCnpj: TDBEdit;
+    Label11: TLabel;
+    dbeEmail: TDBEdit;
     Label12: TLabel;
-    dbeCPF: TDBEdit;
-    Label4: TLabel;
+    dbeCadastro: TDBEdit;
     procedure btnNovoClick(Sender: TObject);
   private
     { Private declarations }
@@ -53,13 +56,13 @@ type
   end;
 
 var
-  frmCliente: TfrmCliente;
+  frmFornecedor: TfrmFornecedor;
 
 implementation
 
 {$R *.dfm}
 
-procedure TfrmCliente.btnNovoClick(Sender: TObject);
+procedure TfrmFornecedor.btnNovoClick(Sender: TObject);
 begin
   inherited;
   dbeCadastro.Text:=DateToStr(now);
