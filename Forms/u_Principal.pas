@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.Menus, u_Usuario;
+  Vcl.Menus, u_Usuario, u_Empresa;
 
 type
   TfrmPrincipal = class(TForm)
@@ -45,6 +45,10 @@ type
     procedure SpeedButton10Click(Sender: TObject);
     procedure btnUsuarioClick(Sender: TObject);
     procedure AbreTelaUsuario();
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure AbreTelaEmpresa();
+    procedure Usurio1Click(Sender: TObject);
+    procedure Empresa1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,6 +76,23 @@ begin
 
 end;
 
+procedure TfrmPrincipal.SpeedButton2Click(Sender: TObject);
+begin
+  AbreTelaEmpresa;
+end;
+
+procedure TfrmPrincipal.AbreTelaEmpresa;
+begin
+  frmEmpresa:=TfrmEmpresa.Create(self);
+  frmEmpresa.ShowModal;
+  try
+
+  finally
+    frmEmpresa.Free;
+    frmEmpresa:=nil;//LIMPANDO A MEMORIA
+  end;
+end;
+
 procedure TfrmPrincipal.AbreTelaUsuario;
 begin
   frmUsuario:=TfrmUsuario.Create(self);
@@ -89,6 +110,11 @@ begin
   AbreTelaUsuario;
 end;
 
+procedure TfrmPrincipal.Empresa1Click(Sender: TObject);
+begin
+  AbreTelaEmpresa;
+end;
+
 procedure TfrmPrincipal.Timer1Timer(Sender: TObject);
 begin
   //insere dados no status bar
@@ -96,6 +122,11 @@ begin
   Statusbar1.Panels[1].Text:=TimeTostr(now);
   Statusbar1.Panels[2].Text:=' SEJA BEM VINDO AO SISTEMA';
 
+end;
+
+procedure TfrmPrincipal.Usurio1Click(Sender: TObject);
+begin
+  AbreTelaUsuario;
 end;
 
 end.
