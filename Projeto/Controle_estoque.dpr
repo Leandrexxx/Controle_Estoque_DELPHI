@@ -10,7 +10,8 @@ uses
   u_Cliente in '..\Forms\u_Cliente.pas' {frmCliente},
   u_Fornecedor in '..\Forms\u_Fornecedor.pas' {frmFornecedor},
   u_Produto in '..\Forms\u_Produto.pas' {frmProduto},
-  u_FormaPgto in '..\Forms\u_FormaPgto.pas' {frmFormaPgto};
+  u_FormaPgto in '..\Forms\u_FormaPgto.pas' {frmFormaPgto},
+  u_FormPesquisaPadrao in '..\Forms\u_FormPesquisaPadrao.pas' {frmPesquisaPadrao};
 
 {$R *.res}
 
