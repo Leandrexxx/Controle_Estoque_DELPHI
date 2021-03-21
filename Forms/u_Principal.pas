@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente, u_Fornecedor, u_Produto;
+  Vcl.Menus, u_Usuario, u_Empresa, u_Cliente, u_Fornecedor, u_Produto,
+  u_FormaPgto;
 
 type
   TfrmPrincipal = class(TForm)
@@ -58,6 +59,9 @@ type
     procedure btnProdutoClick(Sender: TObject);
     procedure AbreTelaProduto();
     procedure menuProdutosClick(Sender: TObject);
+    procedure btnFormaPgtoClick(Sender: TObject);
+    procedure AbreTelaFormaPgto();
+    procedure menuFormaPgtoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -95,6 +99,11 @@ begin
   AbreTelaCliente;
 end;
 
+procedure TfrmPrincipal.btnFormaPgtoClick(Sender: TObject);
+begin
+  AbreTelaFormaPgto;
+end;
+
 procedure TfrmPrincipal.btnFornecedorClick(Sender: TObject);
 begin
   AbreTelaFornecedor;
@@ -126,6 +135,18 @@ begin
   finally
     frmEmpresa.Free;
     frmEmpresa:=nil;//LIMPANDO A MEMORIA
+  end;
+end;
+
+procedure TfrmPrincipal.AbreTelaFormaPgto;
+begin
+  frmFormaPgto:=TfrmFormaPgto.create(self);
+  frmFormaPgto.ShowModal;
+  try
+
+  finally
+    frmFormaPgto.Free;
+    frmFormaPgto:=nil;
   end;
 end;
 
@@ -178,6 +199,11 @@ end;
 procedure TfrmPrincipal.menuEmpresaClick(Sender: TObject);
 begin
   AbreTelaEmpresa;
+end;
+
+procedure TfrmPrincipal.menuFormaPgtoClick(Sender: TObject);
+begin
+  AbreTelaFormaPgto;
 end;
 
 procedure TfrmPrincipal.menuFornecedoresClick(Sender: TObject);

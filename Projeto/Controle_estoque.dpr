@@ -9,7 +9,8 @@ uses
   u_Empresa in '..\Forms\u_Empresa.pas' {frmEmpresa},
   u_Cliente in '..\Forms\u_Cliente.pas' {frmCliente},
   u_Fornecedor in '..\Forms\u_Fornecedor.pas' {frmFornecedor},
-  u_Produto in '..\Forms\u_Produto.pas' {frmProduto};
+  u_Produto in '..\Forms\u_Produto.pas' {frmProduto},
+  u_FormaPgto in '..\Forms\u_FormaPgto.pas' {frmFormaPgto};
 
 {$R *.res}
 
@@ -18,6 +19,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TfrmProduto, frmProduto);
   Application.Run;
 end.

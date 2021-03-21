@@ -117,27 +117,27 @@ inherited frmEmpresa: TfrmEmpresa
     FocusControl = dbeCadastro
   end
   inherited Panel1: TPanel
-    TabOrder = 1
+    TabOrder = 14
   end
   inherited Panel2: TPanel
     Top = 420
-    TabOrder = 3
+    TabOrder = 15
     ExplicitTop = 420
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
   inherited btnCancelar: TBitBtn
-    TabOrder = 15
-  end
-  inherited btnAtualizar: TBitBtn
-    TabOrder = 16
-  end
-  inherited btnPesquisar: TBitBtn
     TabOrder = 17
   end
-  inherited btnSair: TBitBtn
+  inherited btnAtualizar: TBitBtn
     TabOrder = 18
+  end
+  inherited btnPesquisar: TBitBtn
+    TabOrder = 19
+  end
+  inherited btnSair: TBitBtn
+    TabOrder = 20
   end
   object dbeCodigo: TDBEdit [20]
     Left = 64
@@ -150,9 +150,10 @@ inherited frmEmpresa: TfrmEmpresa
   end
   object dbeRazaoSocial: TDBEdit [21]
     Left = 64
-    Top = 128
+    Top = 131
     Width = 489
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'RAZAO_SOCIAL'
     DataSource = dsPadrao
     TabOrder = 2
@@ -162,15 +163,17 @@ inherited frmEmpresa: TfrmEmpresa
     Top = 168
     Width = 489
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'N_FANTASIA'
     DataSource = dsPadrao
-    TabOrder = 14
+    TabOrder = 3
   end
   object dbeEndereco: TDBEdit [23]
     Left = 64
     Top = 208
     Width = 400
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'ENDERECO'
     DataSource = dsPadrao
     TabOrder = 4
@@ -189,6 +192,7 @@ inherited frmEmpresa: TfrmEmpresa
     Top = 248
     Width = 489
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'BAIRRO'
     DataSource = dsPadrao
     TabOrder = 6
@@ -198,6 +202,7 @@ inherited frmEmpresa: TfrmEmpresa
     Top = 287
     Width = 433
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'CIDADE'
     DataSource = dsPadrao
     TabOrder = 7
@@ -207,6 +212,7 @@ inherited frmEmpresa: TfrmEmpresa
     Top = 287
     Width = 49
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'UF'
     DataSource = dsPadrao
     TabOrder = 8
@@ -243,6 +249,7 @@ inherited frmEmpresa: TfrmEmpresa
     Top = 367
     Width = 489
     Height = 21
+    CharCase = ecUpperCase
     DataField = 'EMAIL'
     DataSource = dsPadrao
     TabOrder = 12
@@ -255,7 +262,7 @@ inherited frmEmpresa: TfrmEmpresa
     DataField = 'LOGO'
     DataSource = dsPadrao
     Stretch = True
-    TabOrder = 13
+    TabOrder = 16
   end
   object dbeCadastro: TDBEdit [33]
     Left = 180
@@ -265,7 +272,7 @@ inherited frmEmpresa: TfrmEmpresa
     DataField = 'CADASTRO'
     DataSource = dsPadrao
     Enabled = False
-    TabOrder = 19
+    TabOrder = 1
   end
   object btnFoto: TBitBtn [34]
     Left = 580
@@ -372,7 +379,7 @@ inherited frmEmpresa: TfrmEmpresa
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFF0F8F0B5DEB3A9D8A6BEE1BDF8F9F8FFFFFFFFFFFF}
-    TabOrder = 20
+    TabOrder = 13
     OnClick = btnFotoClick
   end
   object btnClear: TBitBtn [35]
@@ -509,7 +516,7 @@ inherited frmEmpresa: TfrmEmpresa
     object qryPadraoID_EMPRESA: TIntegerField
       FieldName = 'ID_EMPRESA'
       Origin = 'ID_EMPRESA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
       Required = True
     end
     object qryPadraoRAZAO_SOCIAL: TStringField

@@ -89,6 +89,7 @@ inherited frmProduto: TfrmProduto
   inherited Panel2: TPanel
     Top = 285
     TabOrder = 11
+    ExplicitTop = 285
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end

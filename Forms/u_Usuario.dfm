@@ -42,12 +42,10 @@ inherited frmUsuario: TfrmUsuario
     FocusControl = dbCadastro
   end
   inherited Panel1: TPanel
-    TabOrder = 2
+    TabOrder = 4
   end
   inherited Panel2: TPanel
     TabOrder = 6
-    ExplicitLeft = -64
-    ExplicitTop = 288
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -89,7 +87,7 @@ inherited frmUsuario: TfrmUsuario
     DataField = 'SENHA'
     DataSource = dsPadrao
     PasswordChar = '*'
-    TabOrder = 3
+    TabOrder = 2
   end
   object dbCadastro: TDBEdit [13]
     Left = 544
@@ -111,7 +109,7 @@ inherited frmUsuario: TfrmUsuario
     Items.Strings = (
       'ADMINISTRADOR'
       'APOIO')
-    TabOrder = 4
+    TabOrder = 3
   end
   inherited btnSair: TBitBtn
     TabOrder = 10
@@ -136,7 +134,7 @@ inherited frmUsuario: TfrmUsuario
       AutoGenerateValue = arAutoInc
       FieldName = 'ID_USUARIO'
       Origin = 'ID_USUARIO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
     end
     object qryPadraoNOME: TStringField
       FieldName = 'NOME'
@@ -163,7 +161,6 @@ inherited frmUsuario: TfrmUsuario
     end
   end
   inherited dsPadrao: TDataSource
-    DataSet = qryPadrao
     Left = 768
     Top = 168
   end

@@ -12,7 +12,6 @@ uses
 
 type
   TfrmProduto = class(TfrmPadrao)
-    qryPadraoID_PRODUTO: TIntegerField;
     qryPadraoPRODUTO_DESCRICAO: TStringField;
     qryPadraoVL_CUSTO: TFMTBCDField;
     qryPadraoVL_VENDA: TFMTBCDField;
@@ -42,6 +41,7 @@ type
     Label10: TLabel;
     dbeFornecedor: TDBEdit;
     dbcUnidade: TDBComboBox;
+    qryPadraoID_PRODUTO: TIntegerField;
     procedure btnNovoClick(Sender: TObject);
   private
     { Private declarations }

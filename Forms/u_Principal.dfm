@@ -2440,6 +2440,7 @@ object frmPrincipal: TfrmPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = btnFormaPgtoClick
     end
     object btnCompra: TSpeedButton
       Left = 718
@@ -4099,6 +4100,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object menuFormaPgto: TMenuItem
         Caption = '&Formas de Pgto'
+        OnClick = menuFormaPgtoClick
       end
     end
     object Movimentos1: TMenuItem
