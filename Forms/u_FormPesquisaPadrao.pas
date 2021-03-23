@@ -18,9 +18,9 @@ type
     edtNome: TEdit;
     mkInicio: TMaskEdit;
     mkFim: TMaskEdit;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    lbNome: TLabel;
+    lbInicio: TLabel;
+    lbFim: TLabel;
     DBGrid1: TDBGrid;
     Panel2: TPanel;
     btnPesquisar: TBitBtn;
@@ -28,6 +28,8 @@ type
     btnImprimir: TBitBtn;
     qryPesqPadrao: TFDQuery;
     dsPesqPadrao: TDataSource;
+    procedure cbChavePesquisaChange(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -40,5 +42,67 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmPesquisaPadrao.cbChavePesquisaChange(Sender: TObject);
+begin
+  case cbChavePesquisa.ItemIndex of
+  0:begin //PESQUISA PELO CODIGO
+    edtNome.Visible:=true;
+    edtNome.SetFocus;
+    mkInicio.Visible:=false;
+    mkFim.Visible:=false;
+    lbNome.Visible:=true;
+    lbInicio.Visible:=false;
+    lbFim.Visible:=false;
+    lbNome.Caption:='Digite o CÓDIGO';
+  end;
+
+  1:begin //PESQUISA O NOME
+    edtNome.Visible:=true;
+    edtNome.SetFocus;
+    mkInicio.Visible:=false;
+    mkFim.Visible:=false;
+    lbNome.Visible:=true;
+    lbInicio.Visible:=false;
+    lbFim.Visible:=false;
+    lbNome.Caption:='Digite o NOME';
+  end;
+
+    2:begin//AQUI PESQUISA POR DATA
+    edtNome.Visible:=false;
+    mkInicio.Visible:=true;
+    mkInicio.SetFocus;
+    mkFim.Visible:=false;
+    lbNome.Visible:=false;
+    lbInicio.Visible:=true;
+    lbInicio.Caption:='Digite o DATA';
+    lbFim.Visible:=False;
+  end;
+
+    3:begin//AQUI POR PERIODO
+    edtNome.Visible:=false;
+    mkInicio.Visible:=true;
+    mkFim.Visible:=true;
+    mkInicio.SetFocus;
+    lbNome.Visible:=false;
+    lbInicio.Visible:=true;
+    lbFim.Visible:=false;
+    lbInicio.Caption:='Digite o PERIODO';
+  end;
+
+
+  end;
+end;
+
+procedure TfrmPesquisaPadrao.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  //HABILITA O ENTER PARA FAZER A MESMA FUNÇÃO DO TAB
+  if key=#13 then
+  begin
+    key:=#0;
+    Perform(wm_nextDlgCtl,0,0);
+  end;
+
+end;
 
 end.

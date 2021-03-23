@@ -58,6 +58,7 @@ inherited frmUsuario: TfrmUsuario
   end
   inherited btnPesquisar: TBitBtn
     TabOrder = 9
+    OnClick = btnPesquisarClick
   end
   object dbCodigo: TDBEdit [10]
     Left = 96

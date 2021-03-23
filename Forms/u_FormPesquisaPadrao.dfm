@@ -10,8 +10,10 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -23,8 +25,6 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
     Color = clSkyBlue
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
-    ExplicitWidth = 1030
     object Label1: TLabel
       Left = 24
       Top = 12
@@ -38,7 +38,7 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
       Font.Style = []
       ParentFont = False
     end
-    object Label2: TLabel
+    object lbNome: TLabel
       Left = 192
       Top = 12
       Width = 42
@@ -51,7 +51,7 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
       Font.Style = []
       ParentFont = False
     end
-    object Label3: TLabel
+    object lbInicio: TLabel
       Left = 488
       Top = 12
       Width = 39
@@ -64,7 +64,7 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
       Font.Style = []
       ParentFont = False
     end
-    object Label4: TLabel
+    object lbFim: TLabel
       Left = 632
       Top = 12
       Width = 26
@@ -83,11 +83,13 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
       Width = 140
       Height = 21
       TabOrder = 0
+      OnChange = cbChavePesquisaChange
       Items.Strings = (
         'C'#211'DIGO'
         'NOME'
         'CADASTRO'
-        'PER'#205'ODO')
+        'PER'#205'ODO'
+        'TODOS')
     end
     object edtNome: TEdit
       Left = 192
@@ -461,7 +463,6 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
     Color = clSkyBlue
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 983
   end
   object qryPesqPadrao: TFDQuery
     Connection = DM.conexao

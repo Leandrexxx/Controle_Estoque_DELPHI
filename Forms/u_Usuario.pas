@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask, u_PesqUsuario;
 
 type
   TfrmUsuario = class(TfrmPadrao)
@@ -28,6 +28,7 @@ type
     dbCadastro: TDBEdit;
     cbTipo: TDBComboBox;
     procedure btnNovoClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,6 +47,19 @@ begin
   inherited;
   dbCadastro.Text:=DateToStr(now);
   dbNome.SetFocus;
+end;
+
+procedure TfrmUsuario.btnPesquisarClick(Sender: TObject);
+begin
+  frmPesqUsuarios:=TfrmPesqUsuarios.Create(self);
+  frmPesqUsuarios.ShowModal;
+  try
+
+  finally
+  frmPesqUsuarios.Free;
+  frmPesqUsuarios:=nil;
+  end;
+
 end;
 
 end.
