@@ -111,6 +111,7 @@ inherited frmCliente: TfrmCliente
   end
   inherited btnPesquisar: TBitBtn
     TabOrder = 15
+    OnClick = btnPesquisarClick
   end
   inherited btnSair: TBitBtn
     TabOrder = 16
