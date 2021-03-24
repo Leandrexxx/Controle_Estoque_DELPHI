@@ -55,6 +55,7 @@ begin
     lbInicio.Visible:=false;
     lbFim.Visible:=false;
     lbNome.Caption:='Digite o CÓDIGO';
+    edtNome.Clear;
   end;
 
   1:begin //PESQUISA O NOME
@@ -66,6 +67,7 @@ begin
     lbInicio.Visible:=false;
     lbFim.Visible:=false;
     lbNome.Caption:='Digite o NOME';
+    edtNome.Clear;
   end;
 
     2:begin//AQUI PESQUISA POR DATA
@@ -77,6 +79,7 @@ begin
     lbInicio.Visible:=true;
     lbInicio.Caption:='Digite o DATA';
     lbFim.Visible:=False;
+    mkInicio.Clear;
   end;
 
     3:begin//AQUI POR PERIODO
@@ -88,8 +91,20 @@ begin
     lbInicio.Visible:=true;
     lbFim.Visible:=false;
     lbInicio.Caption:='Digite o PERIODO';
+    mkInicio.Clear;
   end;
 
+    4:begin//AQUI POR PERIODO
+    edtNome.Visible:=false;
+    mkInicio.Visible:=false;
+    mkFim.Visible:=false;
+    //mkInicio.SetFocus;
+    lbNome.Visible:=true;
+    lbInicio.Visible:=false;
+    lbFim.Visible:=false;
+    lbInicio.Caption:='MOSTRANDO TODOS OS REGISTROS';
+    //mkInicio.Clear;
+    end;
 
   end;
 end;

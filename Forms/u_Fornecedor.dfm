@@ -1,7 +1,6 @@
 inherited frmFornecedor: TfrmFornecedor
   Caption = 'CADASTRO DE FORNECEDORES'
   ClientHeight = 460
-  ExplicitTop = -32
   ExplicitHeight = 489
   PixelsPerInch = 96
   TextHeight = 13
@@ -107,7 +106,7 @@ inherited frmFornecedor: TfrmFornecedor
   inherited Panel2: TPanel
     Top = 397
     TabOrder = 13
-    ExplicitTop = 441
+    ExplicitTop = 397
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -120,6 +119,7 @@ inherited frmFornecedor: TfrmFornecedor
   end
   inherited btnPesquisar: TBitBtn
     TabOrder = 16
+    OnClick = btnPesquisarClick
   end
   inherited btnSair: TBitBtn
     TabOrder = 17
@@ -337,7 +337,6 @@ inherited frmFornecedor: TfrmFornecedor
     end
   end
   inherited dsPadrao: TDataSource
-    DataSet = qryPadrao
     Left = 744
     Top = 184
   end
