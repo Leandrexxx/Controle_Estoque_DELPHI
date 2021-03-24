@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask, u_PesqProduto;
 
 type
   TfrmProduto = class(TfrmPadrao)
@@ -43,6 +43,8 @@ type
     dbcUnidade: TDBComboBox;
     qryPadraoID_PRODUTO: TIntegerField;
     procedure btnNovoClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -62,6 +64,25 @@ begin
   dbeCadastro.Text:= DateToStr(now);
   dbeCodigo.SetFocus;
 
+end;
+
+procedure TfrmProduto.btnPesquisarClick(Sender: TObject);
+begin
+  frmPesqProduto:=TfrmPesqProduto.Create(self);
+  frmPesqProduto.ShowModal;
+  try
+
+  finally
+  frmPesqProduto.Free;
+  frmPesqProduto:=nil;
+  end;
+
+end;
+
+procedure TfrmProduto.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  qryPadrao.Close;
 end;
 
 end.

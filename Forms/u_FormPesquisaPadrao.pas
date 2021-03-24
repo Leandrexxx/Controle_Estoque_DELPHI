@@ -30,6 +30,7 @@ type
     dsPesqPadrao: TDataSource;
     procedure cbChavePesquisaChange(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -95,6 +96,18 @@ begin
   end;
 
     4:begin//AQUI POR PERIODO
+    edtNome.Visible:=true;
+    mkInicio.Visible:=false;
+    mkFim.Visible:=false;
+    //mkInicio.SetFocus;
+    lbNome.Visible:=true;
+    lbInicio.Visible:=false;
+    lbFim.Visible:=false;
+    lbNome.Caption:='DIGITE O CODIGO DO FORNECEDOR';
+    //mkInicio.Clear;
+    end;
+
+    5:begin//AQUI POR PERIODO
     edtNome.Visible:=false;
     mkInicio.Visible:=false;
     mkFim.Visible:=false;
@@ -102,11 +115,17 @@ begin
     lbNome.Visible:=true;
     lbInicio.Visible:=false;
     lbFim.Visible:=false;
-    lbInicio.Caption:='MOSTRANDO TODOS OS REGISTROS';
+    lbNome.Caption:='MOSTRANDO TODOS OS REGISTROS';
     //mkInicio.Clear;
     end;
 
   end;
+end;
+
+procedure TfrmPesquisaPadrao.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  qryPesqPadrao.Close;
 end;
 
 procedure TfrmPesquisaPadrao.FormKeyPress(Sender: TObject; var Key: Char);

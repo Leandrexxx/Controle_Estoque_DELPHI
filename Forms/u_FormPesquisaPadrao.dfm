@@ -13,6 +13,7 @@ object frmPesquisaPadrao: TfrmPesquisaPadrao
   KeyPreview = True
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnClose = FormClose
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13

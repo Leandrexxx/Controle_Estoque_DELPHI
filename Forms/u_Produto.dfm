@@ -1,6 +1,7 @@
 inherited frmProduto: TfrmProduto
   Caption = 'CADASTRO DE PRODUTOS'
   ClientHeight = 348
+  OnClose = FormClose
   ExplicitHeight = 377
   PixelsPerInch = 96
   TextHeight = 13
@@ -102,6 +103,7 @@ inherited frmProduto: TfrmProduto
   end
   inherited btnPesquisar: TBitBtn
     TabOrder = 14
+    OnClick = btnPesquisarClick
   end
   inherited btnSair: TBitBtn
     TabOrder = 15
