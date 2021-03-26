@@ -71,7 +71,11 @@ begin
   frmPesqProduto:=TfrmPesqProduto.Create(self);
   frmPesqProduto.ShowModal;
   try
-
+    if frmPesqProduto.codigo > 0 then
+    begin
+      qryPadrao.open;
+      qryPadrao.Locate('ID_Produto', frmPesqProduto.codigo,[]);
+    end;
   finally
   frmPesqProduto.Free;
   frmPesqProduto:=nil;

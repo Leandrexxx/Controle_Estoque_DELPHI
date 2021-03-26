@@ -54,7 +54,11 @@ begin
   frmPesqUsuarios:=TfrmPesqUsuarios.Create(self);
   frmPesqUsuarios.ShowModal;
   try
-
+    if frmPesqUsuarios.codigo > 0 then
+    begin
+      qryPadrao.open;
+      qryPadrao.Locate('ID_USUARIO', frmPesqUsuarios.codigo,[]);
+    end;
   finally
   frmPesqUsuarios.Free;
   frmPesqUsuarios:=nil;

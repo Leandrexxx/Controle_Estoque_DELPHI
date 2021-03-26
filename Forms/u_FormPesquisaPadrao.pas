@@ -35,6 +35,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    codigo:integer;
   end;
 
 var

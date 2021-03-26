@@ -25,6 +25,8 @@ type
     qryPesqPadraoEMAIL: TStringField;
     qryPesqPadraoCADASTRO: TDateField;
     procedure btnPesquisarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure btnTransferirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -98,5 +100,23 @@ begin
 
 end;
 
+
+procedure TfrmPesqFornecedor.btnTransferirClick(Sender: TObject);
+begin
+
+   if qryPesqPadrao.RecordCount > 0 then
+  begin
+    codigo:=qryPesqPadraoID_FORNECEDOR.AsInteger;
+  end
+  else
+  abort;
+
+end;
+
+procedure TfrmPesqFornecedor.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  btnTransferir.Click;
+end;
 
 end.

@@ -18,6 +18,8 @@ type
     qryPesqPadraoCADASTRO: TDateField;
     procedure btnPesquisarClick(Sender: TObject);
     procedure cbChavePesquisaChange(Sender: TObject);
+    procedure btnTransferirClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,6 +72,17 @@ begin
   if qryPesqPadrao.IsEmpty then //SE NADA FOR ENCONTRADO MOSTRA A MENSAGEM ABAIXO
   begin
     Messagedlg('Registro não encontrando!',MtInformation,[mbOk],0);
+  end
+  else
+  abort;
+
+end;
+
+procedure TfrmPesqUsuarios.btnTransferirClick(Sender: TObject);
+begin
+   if qryPesqPadrao.RecordCount > 0 then
+  begin
+    codigo:=qryPesqPadraoID_USUARIO.AsInteger;
   end
   else
   abort;
@@ -135,6 +148,12 @@ begin
 
   end;
 
+end;
+
+procedure TfrmPesqUsuarios.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  btnTransferir.Click;
 end;
 
 end.

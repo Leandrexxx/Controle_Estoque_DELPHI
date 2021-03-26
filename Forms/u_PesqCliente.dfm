@@ -6,8 +6,12 @@ inherited frmPesqCliente: TfrmPesqCliente
     inherited btnPesquisar: TBitBtn
       OnClick = btnPesquisarClick
     end
+    inherited btnTransferir: TBitBtn
+      OnClick = btnTransferirClick
+    end
   end
   inherited DBGrid1: TDBGrid
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False

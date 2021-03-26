@@ -30,6 +30,7 @@ inherited frmFormaPgto: TfrmFormaPgto
   end
   inherited Panel2: TPanel
     Top = 265
+    ExplicitTop = 265
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end

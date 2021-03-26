@@ -72,7 +72,11 @@ begin
   frmPesqCliente:=TfrmPesqCliente.Create(self);
   frmPesqCliente.ShowModal;
   try
-
+    if frmPesqCliente.codigo > 0 then
+    begin
+      qryPadrao.open;
+      qryPadrao.Locate('ID_CLIENTE', frmPesqCLiente.codigo,[]);
+    end;
   finally
     frmPesqCliente.Free;
     frmPesqCliente:=nil;

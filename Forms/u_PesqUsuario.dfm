@@ -1,15 +1,13 @@
 inherited frmPesqUsuarios: TfrmPesqUsuarios
   Caption = 'PESQUISA USU'#193'RIOS'
   ClientWidth = 1069
-  ExplicitLeft = 2
   ExplicitWidth = 1085
+  ExplicitHeight = 539
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1069
-    inherited cbChavePesquisa: TComboBox
-      OnChange = cbChavePesquisaChange
-    end
+    ExplicitWidth = 1069
     inherited mkInicio: TMaskEdit
       Width = 118
       EditMask = '!99/99/0000;1;_'
@@ -27,9 +25,13 @@ inherited frmPesqUsuarios: TfrmPesqUsuarios
     inherited btnPesquisar: TBitBtn
       OnClick = btnPesquisarClick
     end
+    inherited btnTransferir: TBitBtn
+      OnClick = btnTransferirClick
+    end
   end
   inherited DBGrid1: TDBGrid
     Width = 1069
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
@@ -55,6 +57,7 @@ inherited frmPesqUsuarios: TfrmPesqUsuarios
   end
   inherited Panel2: TPanel
     Width = 1069
+    ExplicitWidth = 1069
   end
   inherited qryPesqPadrao: TFDQuery
     SQL.Strings = (

@@ -1,15 +1,17 @@
 inherited frmPesqFornecedor: TfrmPesqFornecedor
   Caption = 'PESQUISA FORNECEDORES'
-  ExplicitWidth = 1092
-  ExplicitHeight = 539
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     inherited btnPesquisar: TBitBtn
       OnClick = btnPesquisarClick
     end
+    inherited btnTransferir: TBitBtn
+      OnClick = btnTransferirClick
+    end
   end
   inherited DBGrid1: TDBGrid
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
