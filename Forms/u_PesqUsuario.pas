@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
+  frxClass, frxDBSet;
 
 type
   TfrmPesqUsuarios = class(TfrmPesquisaPadrao)
@@ -16,10 +17,13 @@ type
     qryPesqPadraoNOME: TStringField;
     qryPesqPadraoTIPO: TStringField;
     qryPesqPadraoCADASTRO: TDateField;
+    relDbUsuario: TfrxReport;
+    dataSetPesqPadrao: TfrxDBDataset;
     procedure btnPesquisarClick(Sender: TObject);
     procedure cbChavePesquisaChange(Sender: TObject);
     procedure btnTransferirClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +36,28 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmPesqUsuarios.btnImprimirClick(Sender: TObject);
+var caminho : string; //CRIA UMA VARIAVEL
+
+begin
+  //ABRE RELATÓRIO
+  caminho:=ExtractFilePath(Application.ExeName);
+
+  //VALIDAÇÃO SE ENCONTRAR OU NÃO O RELATÓRIO
+  if frmPesqUsuarios.relDbUsuario.LoadFromFile(caminho + 'relUsuario.fr3') then
+  begin
+    relDbUsuario.Clear;//LIMPA RELATORIO
+    relDbUsuario.LoadFromFile(extractfilepath(application.ExeName)+ 'relUsuario.fr3');
+    relDbUsuario.PrepareReport(true);
+    relDbUsuario.ShowPreparedReport;
+  end
+  else
+  Messagedlg('Relatorio não encontrado',mtError,[mbOk],0);
+
+
+
+end;
 
 procedure TfrmPesqUsuarios.btnPesquisarClick(Sender: TObject);
 begin

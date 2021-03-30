@@ -8,7 +8,7 @@ uses
   U_DM, Data.DB, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Buttons, Vcl.Grids, Vcl.DBGrids;
+  Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
 
 type
   TfrmPesquisaPadrao = class(TForm)

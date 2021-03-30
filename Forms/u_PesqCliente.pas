@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
+  frxClass, frxDBSet;
 
 type
   TfrmPesqCliente = class(TfrmPesquisaPadrao)
@@ -23,9 +24,12 @@ type
     qryPesqPadraoTELEFONE: TStringField;
     qryPesqPadraoCPF: TStringField;
     qryPesqPadraoCADASTRO: TDateField;
+    relDbCliente: TfrxReport;
+    dataSetPesqCliente: TfrxDBDataset;
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnTransferirClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,6 +42,29 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmPesqCliente.btnImprimirClick(Sender: TObject);
+var caminho : string; //CRIA UMA VARIAVEL
+
+begin
+  //ABRE RELATÓRIO
+  caminho:=ExtractFilePath(Application.ExeName);
+
+  //VALIDAÇÃO SE ENCONTRAR OU NÃO O RELATÓRIO
+  if frmPesqCliente.relDbCliente.LoadFromFile(caminho + 'relCliente.fr3') then
+  begin
+    relDbCliente.Clear;//LIMPA RELATORIO
+    relDbCliente.LoadFromFile(extractfilepath(application.ExeName)+ 'relCliente.fr3');
+    relDbCliente.PrepareReport(true);
+    relDbCliente.ShowPreparedReport;
+  end
+  else
+  Messagedlg('Relatorio não encontrado',mtError,[mbOk],0);
+
+
+
+end;
+
 
 procedure TfrmPesqCliente.btnPesquisarClick(Sender: TObject);
 begin
