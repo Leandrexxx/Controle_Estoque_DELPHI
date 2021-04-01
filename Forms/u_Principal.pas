@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
   Vcl.Menus, u_Usuario, u_Empresa, u_Cliente, u_Fornecedor, u_Produto,
-  u_FormaPgto;
+  u_FormaPgto, u_Compra;
 
 type
   TfrmPrincipal = class(TForm)
@@ -62,6 +62,8 @@ type
     procedure btnFormaPgtoClick(Sender: TObject);
     procedure AbreTelaFormaPgto();
     procedure menuFormaPgtoClick(Sender: TObject);
+    procedure btnCompraClick(Sender: TObject);
+    Procedure AbreTelaCompra();
   private
     { Private declarations }
   public
@@ -99,6 +101,11 @@ begin
   AbreTelaCliente;
 end;
 
+procedure TfrmPrincipal.btnCompraClick(Sender: TObject);
+begin
+  AbreTelaCompra;
+end;
+
 procedure TfrmPrincipal.btnFormaPgtoClick(Sender: TObject);
 begin
   AbreTelaFormaPgto;
@@ -123,6 +130,18 @@ begin
   finally
     frmCliente.Free;
     frmCliente:=nil;//LIMPANDO A MEMORIA
+  end;
+end;
+
+procedure TfrmPrincipal.AbreTelaCompra;
+begin
+  frmCompra:=TfrmCOmpra.Create(self);
+  frmCompra.ShowModal;
+  try
+
+  finally
+    frmCompra.Free;
+    frmCompra:=nil;
   end;
 end;
 

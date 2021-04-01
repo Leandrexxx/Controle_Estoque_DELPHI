@@ -23,8 +23,8 @@ type
     qryPesqPadraoID_FORNECEDOR: TIntegerField;
     qryPesqPadraoCADASTRO: TDateField;
     qryPesqPadraoNOME: TStringField;
+    relPesqProduto: TfrxReport;
     dataSetPesqProduto: TfrxDBDataset;
-    relDbProduto: TfrxReport;
     procedure btnPesquisarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure btnTransferirClick(Sender: TObject);
@@ -50,12 +50,12 @@ begin
   caminho:=ExtractFilePath(Application.ExeName);
 
   //VALIDAÇÃO SE ENCONTRAR OU NÃO O RELATÓRIO
-  if frmPesqProduto.relDbProduto.LoadFromFile(caminho + 'relFornecedor.fr3') then
+  if frmPesqProduto.relPesqProduto.LoadFromFile(caminho + 'relProduto.fr3') then
   begin
-    relDbProduto.Clear;//LIMPA RELATORIO
-    relDbProduto.LoadFromFile(extractfilepath(application.ExeName)+ 'relFornecedor.fr3');
-    relDbProduto.PrepareReport(true);
-    relDbProduto.ShowPreparedReport;
+    relPesqProduto.Clear;//LIMPA RELATORIO
+    relPesqProduto.LoadFromFile(extractfilepath(application.ExeName)+ 'relProduto.fr3');
+    relPesqProduto.PrepareReport(true);
+    relPesqProduto.ShowPreparedReport;
   end
   else
   Messagedlg('Relatorio não encontrado',mtError,[mbOk],0);

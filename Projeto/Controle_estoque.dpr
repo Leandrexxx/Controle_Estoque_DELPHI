@@ -15,7 +15,9 @@ uses
   u_PesqUsuario in '..\Forms\u_PesqUsuario.pas' {frmPesqUsuarios},
   u_PesqCliente in '..\Forms\u_PesqCliente.pas' {frmPesqCliente},
   u_PesqFornecedor in '..\Forms\u_PesqFornecedor.pas' {frmPesqFornecedor},
-  u_PesqProduto in '..\Forms\u_PesqProduto.pas' {frmPesqProduto};
+  u_PesqProduto in '..\Forms\u_PesqProduto.pas' {frmPesqProduto},
+  u_MovimentoPadrao in '..\Forms\u_MovimentoPadrao.pas' {frmPadraoMovimento},
+  u_Compra in '..\Forms\u_Compra.pas' {frmCompra};
 
 {$R *.res}
 
@@ -25,5 +27,7 @@ begin
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfrmPesqProduto, frmPesqProduto);
+  Application.CreateForm(TfrmPadraoMovimento, frmPadraoMovimento);
+  Application.CreateForm(TfrmCompra, frmCompra);
   Application.Run;
 end.

@@ -159,6 +159,14 @@
             <Form>frmPesqProduto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\u_MovimentoPadrao.pas">
+            <Form>frmPadraoMovimento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\u_Compra.pas">
+            <Form>frmCompra</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
